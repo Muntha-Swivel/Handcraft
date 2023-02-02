@@ -1,0 +1,11 @@
+.cardContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.actionsContainer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
