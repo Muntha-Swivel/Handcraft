@@ -23,7 +23,7 @@ const UserNavBar = () => {
 
   return (
     <React.Fragment>
-      <AppBar sx={{ background: "primary" }} elevation={0}>
+      <AppBar sx={{ background: "white" }} elevation={0}>
         <Toolbar>
           <Typography variant="subtitle1">CRAFTJWEL</Typography>
           {isMatch ? (

@@ -5,7 +5,7 @@ import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
 import { theme } from "./theme";
 import { HeroImage } from "./components/atoms";
 import CssBaseline from "@mui/material/CssBaseline";
-import { ACard } from "./components/molecules";
+import { ACard, LoginForm } from "./components/molecules";
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
       <main>
         <div>
           <Container maxWidth="xs" sx={{ mt: 5, mb: 5 }}>
-            <ACard />
+            <LoginForm />
           </Container>
         </div>
       </main>

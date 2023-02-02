@@ -1,10 +1,17 @@
 import React from "react";
 import { Button } from "@mui/material";
-
-const PrimaryButton = () => {
+import { IPrimaryButton } from "./PrimaryButton.interface";
+const PrimaryButton = ({ text, onClick, fullWidth }: IPrimaryButton) => {
   return (
-    <Button color="secondary" variant="contained" sx={{ borderRadius: 10 }}>
-      ADD TO CART
+    <Button
+      color="primary"
+      variant="contained"
+      disableElevation
+      onClick={onClick}
+      size="large"
+      fullWidth={fullWidth}
+    >
+      {text}
     </Button>
   );
 };

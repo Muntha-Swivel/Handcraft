@@ -25,7 +25,10 @@ const ACard = () => {
         </Typography>
       </CardContent>
       <CardActions className={styles.actionsContainer}>
-        <PrimaryButton />
+        <PrimaryButton
+          text="ADD TO CART"
+          onClick={() => console.log("hello")}
+        />
       </CardActions>
     </Card>
   );

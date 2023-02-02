@@ -3,7 +3,7 @@ import { PALETTE } from "./colorPalette";
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#ffff",
+      main: PALETTE.PRIMARY,
     },
     secondary: {
       main: PALETTE.SECONDARY,
