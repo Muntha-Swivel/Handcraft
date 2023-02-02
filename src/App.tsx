@@ -6,22 +6,18 @@ import { theme } from "./theme";
 import { HeroImage } from "./components/atoms";
 import CssBaseline from "@mui/material/CssBaseline";
 import { ACard, LoginForm } from "./components/molecules";
+import { BrowserRouter, RouterProvider } from "react-router-dom";
+import { Router } from "./routes";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <UserNavBar />
-      <CssBaseline />
-      <HeroImage />
-
-      <main>
-        <div>
-          <Container maxWidth="xs" sx={{ mt: 5, mb: 5 }}>
-            <LoginForm />
-          </Container>
-        </div>
-      </main>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider theme={theme}>
+        <UserNavBar />
+        <CssBaseline />
+        <Router />
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }
 

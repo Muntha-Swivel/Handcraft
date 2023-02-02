@@ -14,42 +14,39 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import { PictureButton } from "../../atoms";
+import { useNavigate } from "react-router-dom";
+import { UserTabs, AdminTabs } from "../../atoms";
+
 const UserNavBar = () => {
-  const [value, setValue] = useState();
   const theme = useTheme();
   console.log(theme);
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   console.log(isMatch);
+  const [isAdmin, setIsAdmin] = useState(false);
+
+  const navigate = useNavigate();
 
   return (
     <React.Fragment>
-      <AppBar sx={{ background: "white" }} elevation={0}>
+      <AppBar sx={{ background: "white" }} position="sticky">
         <Toolbar>
-          <Typography variant="subtitle1">CRAFTJWEL</Typography>
+          <Button variant="text" size="large" sx={{ fontSize: 25 }}>
+            CraftJwel
+          </Button>
           {isMatch ? (
             <>
               <DrawerComp />
             </>
           ) : (
             <>
-              <Tabs
-                sx={{ marginLeft: "auto", marginRight: "auto" }}
-                indicatorColor="secondary"
-                textColor="secondary"
-                value={value}
-                onChange={(e, value) => setValue(value)}
-              >
-                <Tab label="SHOP" />
-                <Tab label="OUR STORY" />
-                <Tab label="REVIEWS" />
-              </Tabs>
+              {isAdmin ? <AdminTabs /> : <UserTabs />}
               <PictureButton
                 icon={<SearchOutlinedIcon />}
                 onClick={() => console.log("hello")}
               />
               <PictureButton
                 icon={<PersonOutlineOutlinedIcon />}
-                onClick={() => console.log("hello")}
+                onClick={() => navigate("/login")}
               />
               <PictureButton
                 icon={<LocalMallOutlinedIcon />}

@@ -7,8 +7,9 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { PrimaryButton } from "../../atoms";
 import styles from "./ACard.module.css";
+import { IACard } from "./ACard.interface";
 
-const ACard = () => {
+const ACard = ({ children }: IACard) => {
   return (
     <Card sx={{ maxWidth: 345 }}>
       <CardMedia
@@ -24,12 +25,7 @@ const ACard = () => {
           $700.00
         </Typography>
       </CardContent>
-      <CardActions className={styles.actionsContainer}>
-        <PrimaryButton
-          text="ADD TO CART"
-          onClick={() => console.log("hello")}
-        />
-      </CardActions>
+      <CardActions className={styles.actionsContainer}>{children}</CardActions>
     </Card>
   );
 };

@@ -1,10 +1,7 @@
 import React from "react";
 import { Box, TextField, Button, Typography, Grid } from "@mui/material";
 import { PrimaryButton } from "../../../atoms";
-import { useNavigate } from "react-router-dom";
-
-const LoginForm = () => {
-  const navigate = useNavigate();
+const UserRegisterForm = () => {
   return (
     <Box
       component="form"
@@ -12,8 +9,33 @@ const LoginForm = () => {
       sx={{ mt: 1, boxShadow: 1, padding: 2, borderRadius: 2 }}
     >
       <Typography variant="h4" color="primary" sx={{ textAlign: "center" }}>
-        Login
+        Register
       </Typography>
+      <TextField
+        margin="normal"
+        variant="outlined"
+        color="secondary"
+        type="text"
+        required
+        fullWidth
+        id="firstname"
+        label="First Name"
+        name="firstname"
+        autoComplete="firstname"
+        autoFocus
+      />
+      <TextField
+        margin="normal"
+        variant="outlined"
+        color="secondary"
+        type="text"
+        required
+        fullWidth
+        id="lastname"
+        label="Last Name"
+        name="lastname"
+        autoComplete="lastname"
+      />
       <TextField
         margin="normal"
         variant="outlined"
@@ -25,7 +47,6 @@ const LoginForm = () => {
         label="Email"
         name="email"
         autoComplete="email"
-        autoFocus
       />
       <TextField
         margin="normal"
@@ -50,9 +71,7 @@ const LoginForm = () => {
         <Grid item xs={12}>
           <Grid container justifyContent="space-between">
             <Grid item>
-              <Button onClick={() => navigate("/userRegister")}>
-                Crete an account
-              </Button>
+              <Button>Crete an account</Button>
             </Grid>
             <Grid item>
               <Button>FORGOT password?</Button>
@@ -64,4 +83,4 @@ const LoginForm = () => {
   );
 };
 
-export { LoginForm };
+export { UserRegisterForm };
