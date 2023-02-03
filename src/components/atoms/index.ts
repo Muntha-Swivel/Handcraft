@@ -4,3 +4,4 @@ export { SecondaryButton } from "./Buttons/SecondaryButton/SecondaryButton";
 export { PictureButton } from "./Buttons/PictureButton/PictureButton";
 export { UserTabs } from "./Tabs/UserTabs/UserTabs";
 export { AdminTabs } from "./Tabs/AdminTabs/AdminTabs";
+export { FormBody } from "./Formbody/FormBody";

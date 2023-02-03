@@ -1,18 +1,27 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Tab, Tabs } from "@mui/material";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import { setPath } from "./AdminTab.logic";
+
 const AdminTabs = () => {
-  const [value, setValue] = useState();
+  const location = useLocation();
+  const [value, setValue] = useState<any>();
+  useEffect(() => {
+    const status = setPath(location);
+    setValue(status);
+    console.log(status);
+  }, [location]);
+
   return (
     <Tabs
       sx={{ marginLeft: "auto", marginRight: "auto" }}
-      indicatorColor="secondary"
       textColor="secondary"
       value={value}
-      onChange={(e, value) => setValue(value)}
     >
-      <Tab label="PRODUCTS" />
-      <Tab label="INSIGHTS" />
+      <Tab label="PRODUCTS" component={Link} to={"/admin-dashboard-products"} />
+      <Tab label="INSIGHTS" component={Link} to={"/admin-products-insight"} />
     </Tabs>
   );
 };

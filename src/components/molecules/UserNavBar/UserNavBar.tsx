@@ -2,10 +2,7 @@ import React, { useState } from "react";
 import {
   AppBar,
   Button,
-  Tab,
-  Tabs,
   Toolbar,
-  Typography,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
@@ -13,6 +10,7 @@ import { DrawerComp } from "../Drawer/Drawer";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import { PictureButton } from "../../atoms";
 import { useNavigate } from "react-router-dom";
 import { UserTabs, AdminTabs } from "../../atoms";
@@ -22,7 +20,7 @@ const UserNavBar = () => {
   console.log(theme);
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   console.log(isMatch);
-  const [isAdmin, setIsAdmin] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(true);
 
   const navigate = useNavigate();
 
@@ -48,10 +46,17 @@ const UserNavBar = () => {
                 icon={<PersonOutlineOutlinedIcon />}
                 onClick={() => navigate("/login")}
               />
-              <PictureButton
-                icon={<LocalMallOutlinedIcon />}
-                onClick={() => console.log("hello")}
-              />
+              {isAdmin ? (
+                <PictureButton
+                  icon={<AddCircleOutlineOutlinedIcon />}
+                  onClick={() => navigate("/admin/add-product")}
+                />
+              ) : (
+                <PictureButton
+                  icon={<LocalMallOutlinedIcon />}
+                  onClick={() => console.log("hello")}
+                />
+              )}
             </>
           )}
         </Toolbar>

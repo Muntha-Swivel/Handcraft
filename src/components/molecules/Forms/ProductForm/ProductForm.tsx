@@ -1,9 +1,10 @@
 import React from "react";
+import { FormBody, PrimaryButton } from "../../../atoms";
 import { TextField, Box } from "@mui/material";
-import { PrimaryButton, FormBody } from "../../../atoms";
-const UserRegisterForm = () => {
+
+const ProductForm = () => {
   return (
-    <FormBody title="REGISTER">
+    <FormBody title="ADD NEW PRODUCT">
       <>
         <TextField
           margin="normal"
@@ -12,35 +13,11 @@ const UserRegisterForm = () => {
           type="text"
           required
           fullWidth
-          id="firstname"
-          label="First Name"
-          name="firstname"
-          autoComplete="firstname"
+          id="name"
+          label="Name"
+          name="name"
+          autoComplete="name"
           autoFocus
-        />
-        <TextField
-          margin="normal"
-          variant="outlined"
-          color="secondary"
-          type="text"
-          required
-          fullWidth
-          id="lastname"
-          label="Last Name"
-          name="lastname"
-          autoComplete="lastname"
-        />
-        <TextField
-          margin="normal"
-          variant="outlined"
-          color="secondary"
-          type="text"
-          required
-          fullWidth
-          id="email"
-          label="Email"
-          name="email"
-          autoComplete="email"
         />
         <TextField
           margin="normal"
@@ -49,14 +26,38 @@ const UserRegisterForm = () => {
           type="password"
           required
           fullWidth
-          id="password"
-          label="Password"
-          name="password"
-          autoComplete="password"
+          id="description"
+          label="Description"
+          name="description"
+          autoComplete="description"
+        />
+        <TextField
+          margin="normal"
+          variant="outlined"
+          color="secondary"
+          type="password"
+          required
+          fullWidth
+          id="price"
+          label="Price"
+          name="price"
+          autoComplete="price"
+        />
+        <TextField
+          margin="normal"
+          variant="outlined"
+          color="secondary"
+          type="password"
+          required
+          fullWidth
+          id="quantity"
+          label="Quantity"
+          name="quantity"
+          autoComplete="quantity"
         />
         <Box sx={{ mt: 2 }}>
           <PrimaryButton
-            text="REGISTER"
+            text="ADD Product"
             onClick={() => console.log("hello")}
             fullWidth
           />
@@ -65,5 +66,4 @@ const UserRegisterForm = () => {
     </FormBody>
   );
 };
-
-export { UserRegisterForm };
+export { ProductForm };
