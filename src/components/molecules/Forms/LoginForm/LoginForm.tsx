@@ -2,9 +2,14 @@ import React from "react";
 import { TextField, Button, Grid } from "@mui/material";
 import { PrimaryButton, FormBody } from "../../../atoms";
 import { useNavigate } from "react-router-dom";
+import { loginService } from "../../../../api/services/auth.service";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const data = {
+    email: "muntha@gmail.com",
+    password: "dude123",
+  };
   return (
     <FormBody title="LOGIN">
       <>
@@ -37,7 +42,7 @@ const LoginForm = () => {
           <Grid item xs={12}>
             <PrimaryButton
               text="LOGIN"
-              onClick={() => console.log("hello")}
+              onClick={() => loginService(data)}
               fullWidth
             />
           </Grid>

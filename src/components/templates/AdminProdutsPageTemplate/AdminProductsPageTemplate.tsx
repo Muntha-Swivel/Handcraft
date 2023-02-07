@@ -7,7 +7,7 @@ import DeleteOutlineOutlinedIcon from "@mui/icons-material/DeleteOutlineOutlined
 const AdminProductsPageTemplate = () => {
   return (
     <Container maxWidth="xs" sx={{ mt: 5 }}>
-      <ACard>
+      {/* <ACard>
         <>
           <SecondaryButton
             text="Edit"
@@ -20,7 +20,7 @@ const AdminProductsPageTemplate = () => {
             onClick={() => console.log("hello")}
           />
         </>
-      </ACard>
+      </ACard> */}
     </Container>
   );
 };

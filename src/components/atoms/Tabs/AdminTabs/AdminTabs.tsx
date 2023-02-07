@@ -3,13 +3,14 @@ import { useState, useEffect } from "react";
 import { Tab, Tabs } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
-import { setPath } from "./AdminTab.logic";
+import { setPath } from "../Tabs.logic";
 
 const AdminTabs = () => {
   const location = useLocation();
   const [value, setValue] = useState<any>();
+  const paths = ["/admin-dashboard-products", "/admin-products-insight"];
   useEffect(() => {
-    const status = setPath(location);
+    const status = setPath(location, paths);
     setValue(status);
     console.log(status);
   }, [location]);

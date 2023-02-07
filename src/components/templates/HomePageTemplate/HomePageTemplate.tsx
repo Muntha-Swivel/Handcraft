@@ -1,23 +1,19 @@
 import React from "react";
 import { HeroImage } from "../../atoms";
-import { ACard } from "../../molecules";
 import { Container, Typography } from "@mui/material";
 import { PrimaryButton } from "../../atoms";
+import { ProductsGridView } from "../../organisms/ProductsGridView/ProductsGridView";
+import { IHomePageTemplate } from "./HomePageTemplate.interface";
 
-const HomePageTemplate = () => {
+const HomePageTemplate = ({ data }: IHomePageTemplate) => {
   return (
     <main>
       <div>
         <Container maxWidth={false} sx={{ mb: 5 }} disableGutters={true}>
           <HeroImage />
         </Container>
-        <Container maxWidth="xs" sx={{ mb: 5 }}>
-          <ACard>
-            <PrimaryButton
-              text="ADD TO CART"
-              onClick={() => console.log("hello")}
-            />
-          </ACard>
+        <Container maxWidth="lg" sx={{ mb: 5 }}>
+          <ProductsGridView data={data} />
         </Container>
       </div>
     </main>

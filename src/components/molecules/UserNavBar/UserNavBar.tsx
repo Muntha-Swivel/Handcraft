@@ -11,16 +11,19 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
 import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import { PictureButton } from "../../atoms";
+import { PictureButton, SearchBox } from "../../atoms";
 import { useNavigate } from "react-router-dom";
 import { UserTabs, AdminTabs } from "../../atoms";
+import { Search } from "@mui/icons-material";
+import CustomizedBadges from "../../atoms/CartIcon/CartIcon";
 
 const UserNavBar = () => {
   const theme = useTheme();
   console.log(theme);
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
   console.log(isMatch);
-  const [isAdmin, setIsAdmin] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [isSearch, setIsSearch] = useState(true);
 
   const navigate = useNavigate();
 
@@ -28,7 +31,12 @@ const UserNavBar = () => {
     <React.Fragment>
       <AppBar sx={{ background: "white" }} position="sticky">
         <Toolbar>
-          <Button variant="text" size="large" sx={{ fontSize: 25 }}>
+          <Button
+            variant="text"
+            size="large"
+            sx={{ fontSize: 25 }}
+            onClick={() => navigate("/")}
+          >
             CraftJwel
           </Button>
           {isMatch ? (
@@ -37,10 +45,17 @@ const UserNavBar = () => {
             </>
           ) : (
             <>
-              {isAdmin ? <AdminTabs /> : <UserTabs />}
+              {isSearch ? (
+                <>
+                  {" "}
+                  <SearchBox />{" "}
+                </>
+              ) : (
+                <>{isAdmin ? <AdminTabs /> : <UserTabs />}</>
+              )}
               <PictureButton
                 icon={<SearchOutlinedIcon />}
-                onClick={() => console.log("hello")}
+                onClick={() => setIsSearch(!isSearch)}
               />
               <PictureButton
                 icon={<PersonOutlineOutlinedIcon />}
@@ -52,10 +67,7 @@ const UserNavBar = () => {
                   onClick={() => navigate("/admin/add-product")}
                 />
               ) : (
-                <PictureButton
-                  icon={<LocalMallOutlinedIcon />}
-                  onClick={() => console.log("hello")}
-                />
+                <CustomizedBadges />
               )}
             </>
           )}

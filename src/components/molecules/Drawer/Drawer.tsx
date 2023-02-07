@@ -8,10 +8,12 @@ import {
   ListItemText,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-const pages = ["Products", "Services", "ABoutUs", "ContactUs"];
+import { useNavigate } from "react-router-dom";
+import { pages } from "./Pages";
+
 const DrawerComp = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
-
+  const navigate = useNavigate();
   return (
     <React.Fragment>
       <Drawer
@@ -21,9 +23,9 @@ const DrawerComp = () => {
       >
         <List>
           {pages.map((page, index) => (
-            <ListItemButton key={index}>
+            <ListItemButton key={index} onClick={() => navigate(page.page)}>
               <ListItemIcon>
-                <ListItemText>{page}</ListItemText>
+                <ListItemText>{page.label}</ListItemText>
               </ListItemIcon>
             </ListItemButton>
           ))}
