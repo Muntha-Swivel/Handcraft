@@ -16,13 +16,21 @@ const ProductsGridView = ({ data }: IProductGridView) => {
             <ACard
               _id={product._id}
               title={product.title}
-              price={String(product.price)}
+              price={product.price}
               description={product.description}
               image={product.image}
             >
               <PrimaryButton
                 text="ADD TO CART"
-                onClick={() => dispatch(addToCart({ ...product, quantity: 1 }))}
+                onClick={() =>
+                  dispatch(
+                    addToCart({
+                      ...product,
+                      quantity: 1,
+                      totalPrice: product.price,
+                    })
+                  )
+                }
               />
             </ACard>
           </Grid>

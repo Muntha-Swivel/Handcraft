@@ -2,7 +2,7 @@ import React from "react";
 import { HeroImage } from "../../atoms";
 import { Container, Typography } from "@mui/material";
 import { PrimaryButton } from "../../atoms";
-import { ProductsGridView } from "../../organisms/ProductsGridView/ProductsGridView";
+import { ProductsGridView } from "../../organisms";
 import { IHomePageTemplate } from "./HomePageTemplate.interface";
 
 const HomePageTemplate = ({ data }: IHomePageTemplate) => {

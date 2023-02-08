@@ -12,10 +12,6 @@ const SearchBox = () => {
 
   const [value, setValue] = useState("");
 
-  const test = (val: any) => {
-    setValue(val);
-    console.log(val);
-  };
   return (
     <Autocomplete
       disablePortal

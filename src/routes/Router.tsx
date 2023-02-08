@@ -1,6 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, FormPage, AdminDashboardPage } from "../pages";
+import { HomePage, FormPage, AdminDashboardPage, CartPage } from "../pages";
 
 const Router = () => {
   return (
@@ -13,6 +13,7 @@ const Router = () => {
         path="/admin-dashboard-products"
         element={<AdminDashboardPage />}
       />
+      <Route path="/cart" element={<CartPage />} />
     </Routes>
   );
 };
