@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   ACard,
   LoginForm,
@@ -6,9 +6,12 @@ import {
   ProductForm,
 } from "../../molecules";
 import { useLocation } from "react-router-dom";
+import { useMatch } from "react-router-dom";
 
 const Form = () => {
   const location = useLocation();
+  const productForm = useMatch("/admin/edit-product/:id");
+
   if (location.pathname === "/login") {
     return <LoginForm />;
   }
@@ -16,7 +19,10 @@ const Form = () => {
     return <UserRegisterForm />;
   }
   if (location.pathname === "/admin/add-product") {
-    return <ProductForm />;
+    return <ProductForm editForm={false} />;
+  }
+  if (productForm) {
+    return <ProductForm editForm={true} />;
   } else {
     return <></>;
   }

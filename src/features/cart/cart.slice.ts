@@ -1,7 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { stat } from "fs";
 import { IProductCart } from "../../shared/index";
-import { calculateTotal } from "../../utils/calTotal";
+import { calculateTotal } from "../../utils/calTotal.utils";
 
 interface updateQty {
   _id: string;

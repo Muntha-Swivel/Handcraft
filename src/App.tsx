@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Typography } from "@mui/material";
 import { UserNavBar } from "./components/molecules/UserNavBar/UserNavBar";
 import { createTheme, ThemeProvider, styled } from "@mui/material/styles";
@@ -11,6 +11,7 @@ import { Router } from "./routes";
 import Cookies from "js-cookie";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import { useAppDispatch } from "./app/hooks";
 
 function App() {
   return (

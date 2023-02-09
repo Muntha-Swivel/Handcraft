@@ -5,7 +5,7 @@ import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { useNavigate } from "react-router-dom";
 
-export default function CustomizedBadges() {
+const CartIcon = () => {
   const navigate = useNavigate();
   const products: number = useAppSelector((state) => state.cart.items.length);
   return (
@@ -15,4 +15,5 @@ export default function CustomizedBadges() {
       </Badge>
     </IconButton>
   );
-}
+};
+export { CartIcon };

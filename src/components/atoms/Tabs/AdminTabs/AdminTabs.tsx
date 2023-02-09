@@ -21,7 +21,7 @@ const AdminTabs = () => {
       textColor="secondary"
       value={value}
     >
-      <Tab label="PRODUCTS" component={Link} to={"/admin-dashboard-products"} />
+      <Tab label="PRODUCTS" component={Link} to={"/"} />
       <Tab label="INSIGHTS" component={Link} to={"/admin-products-insight"} />
     </Tabs>
   );

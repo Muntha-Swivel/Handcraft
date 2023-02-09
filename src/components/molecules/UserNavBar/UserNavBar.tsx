@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   AppBar,
   Button,
@@ -13,19 +13,19 @@ import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
 import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
 import { PictureButton, SearchBox } from "../../atoms";
 import { useNavigate } from "react-router-dom";
-import { UserTabs, AdminTabs } from "../../atoms";
-import { Search } from "@mui/icons-material";
-import CustomizedBadges from "../../atoms/CartIcon/CartIcon";
+import { UserTabs, AdminTabs, CartIcon } from "../../atoms";
+import { useAppSelector, useAppDispatch } from "../../../app/hooks";
+import LogoutIcon from "@mui/icons-material/Logout";
+import { logoutUser } from "../../../features/auth/auth.slice";
 
 const UserNavBar = () => {
   const theme = useTheme();
-  console.log(theme);
   const isMatch = useMediaQuery(theme.breakpoints.down("md"));
-  console.log(isMatch);
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [isSearch, setIsSearch] = useState(true);
+  const { token, user } = useAppSelector((state) => state.auth);
+  const [isSearch, setIsSearch] = useState(false);
 
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   return (
     <React.Fragment>
@@ -51,23 +51,30 @@ const UserNavBar = () => {
                   <SearchBox />{" "}
                 </>
               ) : (
-                <>{isAdmin ? <AdminTabs /> : <UserTabs />}</>
+                <>{user.isAdmin ? <AdminTabs /> : <UserTabs />}</>
               )}
               <PictureButton
                 icon={<SearchOutlinedIcon />}
                 onClick={() => setIsSearch(!isSearch)}
               />
-              <PictureButton
-                icon={<PersonOutlineOutlinedIcon />}
-                onClick={() => navigate("/login")}
-              />
-              {isAdmin ? (
+              {token ? (
+                <PictureButton
+                  icon={<LogoutIcon />}
+                  onClick={() => dispatch(logoutUser())}
+                />
+              ) : (
+                <PictureButton
+                  icon={<PersonOutlineOutlinedIcon />}
+                  onClick={() => navigate("/login")}
+                />
+              )}
+              {user.isAdmin ? (
                 <PictureButton
                   icon={<AddCircleOutlineOutlinedIcon />}
                   onClick={() => navigate("/admin/add-product")}
                 />
               ) : (
-                <CustomizedBadges />
+                <>{token ? <CartIcon /> : <></>}</>
               )}
             </>
           )}

@@ -6,3 +6,5 @@ export { UserTabs } from "./Tabs/UserTabs/UserTabs";
 export { AdminTabs } from "./Tabs/AdminTabs/AdminTabs";
 export { FormBody } from "./Formbody/FormBody";
 export { SearchBox } from "./SearchBox/SearchBox";
+export { CartIcon } from "./CartIcon/CartIcon";
+export { FeedBackMessage } from "./FeedBackMessage/FeedBackMessage";
