@@ -8,6 +8,7 @@ import {
   AnalyticsPage,
 } from "../pages";
 import AdminProtectedRoutes from "./protectedRoutes/admin.route";
+import UserProtectedRoutes from "./protectedRoutes/user.route";
 import { useAppDispatch } from "../app/hooks";
 import { setUser } from "../features/auth/auth.slice";
 import { decodeToken } from "react-jwt";
@@ -40,7 +41,9 @@ const Router = () => {
         path="/admin-dashboard-products"
         element={<AdminDashboardPage />}
       />
-      <Route path="/cart" element={<CartPage />} />
+      <Route element={<UserProtectedRoutes />}>
+        <Route path="/cart" element={<CartPage />} />
+      </Route>
     </Routes>
   );
 };

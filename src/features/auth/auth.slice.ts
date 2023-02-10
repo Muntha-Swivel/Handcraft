@@ -4,8 +4,12 @@ import {
   PayloadAction,
 } from "@reduxjs/toolkit";
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import { loginService, logoutService } from "../../api/services/auth.service";
-import { ILogin, IUser } from "../../shared";
+import {
+  loginService,
+  logoutService,
+  createUserService,
+} from "../../api/services/auth.service";
+import { ILogin, IUser, ICreateUser } from "../../shared";
 import { isExpired, decodeToken } from "react-jwt";
 import Cookies from "js-cookie";
 
@@ -64,10 +68,36 @@ const authSlice = createSlice({
       state.loading = false;
       state.networkError = true;
     });
+    //create user
+    builder.addCase(createUser.pending, (state) => {
+      state.loading = true;
+      state.networkError = false;
+    });
+    builder.addCase(createUser.fulfilled, (state, action) => {
+      state.loading = false;
+      state.networkError = false;
+    });
+    builder.addCase(createUser.rejected, (state, action) => {
+      state.loading = false;
+      state.networkError = true;
+    });
   },
 });
 
 export default authSlice.reducer;
+
+export const createUser = createAsyncThunk(
+  "auth/createUser",
+  async (user: ICreateUser, { rejectWithValue }) => {
+    try {
+      const response = await createUserService(user);
+      return response.data;
+    } catch (err: any) {
+      console.log(err);
+      throw err;
+    }
+  }
+);
 
 export const loginUser = createAsyncThunk(
   "auth/loginUser",

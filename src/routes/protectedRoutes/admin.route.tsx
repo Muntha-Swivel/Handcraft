@@ -1,8 +1,6 @@
-import { useEffect, useState } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import { useAppSelector, useAppDispatch } from "../../app/hooks";
-import { decodeToken } from "react-jwt";
-import { IUser } from "../../shared";
+import { useAppSelector } from "../../app/hooks";
+
 const AdminProtectedRoutes = () => {
   const { token, user } = useAppSelector((state) => state.auth);
   console.log(user.isAdmin);

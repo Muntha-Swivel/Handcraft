@@ -9,3 +9,10 @@ export interface IUser {
   isAdmin: boolean;
   sessionId: string;
 }
+
+export interface ICreateUser {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
