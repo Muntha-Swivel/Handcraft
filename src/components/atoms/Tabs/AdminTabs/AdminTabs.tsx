@@ -22,7 +22,7 @@ const AdminTabs = () => {
       value={value}
     >
       <Tab label="PRODUCTS" component={Link} to={"/"} />
-      <Tab label="INSIGHTS" component={Link} to={"/admin-products-insight"} />
+      <Tab label="INSIGHTS" component={Link} to={"/admin/analytics"} />
     </Tabs>
   );
 };

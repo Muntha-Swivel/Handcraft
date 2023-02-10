@@ -141,11 +141,20 @@ const ProductForm = ({ editForm }: IProductForm) => {
           helperText={formik.touched.image && formik.errors.image}
         />
         <Box sx={{ mt: 2 }}>
-          <PrimaryButton
-            text={edit ? "Update Product" : "Add Product"}
-            onClick={formik.handleSubmit}
-            fullWidth
-          />
+          {loading ? (
+            <PrimaryButton
+              text={"Please Wait"}
+              onClick={formik.handleSubmit}
+              fullWidth
+              disabled
+            />
+          ) : (
+            <PrimaryButton
+              text={edit ? "Update Product" : "Add Product"}
+              onClick={formik.handleSubmit}
+              fullWidth
+            />
+          )}
           {errorMessage ? (
             <FeedBackMessage
               type="error"

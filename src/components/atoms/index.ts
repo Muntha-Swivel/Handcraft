@@ -8,3 +8,4 @@ export { FormBody } from "./Formbody/FormBody";
 export { SearchBox } from "./SearchBox/SearchBox";
 export { CartIcon } from "./CartIcon/CartIcon";
 export { FeedBackMessage } from "./FeedBackMessage/FeedBackMessage";
+export { BarChart } from "./BarChart/BarChart";

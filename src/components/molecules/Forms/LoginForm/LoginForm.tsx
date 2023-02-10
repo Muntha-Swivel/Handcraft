@@ -79,8 +79,9 @@ const LoginForm = () => {
         <Grid container spacing={2} sx={{ mt: 0.5 }}>
           <Grid item xs={12}>
             <PrimaryButton
-              text="LOGIN"
+              text={loading ? "Please Wait..." : "Login"}
               onClick={formik.handleSubmit}
+              disabled={loading ? true : false}
               fullWidth
             />
             {loginErrorMessage ? (

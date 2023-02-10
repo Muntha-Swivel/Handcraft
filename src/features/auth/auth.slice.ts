@@ -46,7 +46,7 @@ const authSlice = createSlice({
         state.loginErrorMessage = "Something went wrong please try again later";
       }
       state.loading = false;
-      state.networkError = false;
+      state.networkError = true;
     });
     //logout user
     builder.addCase(logoutUser.pending, (state) => {
@@ -56,12 +56,13 @@ const authSlice = createSlice({
     builder.addCase(logoutUser.fulfilled, (state, action) => {
       Cookies.remove("accessToken");
       Cookies.remove("refreshToken");
+      state.loading = false;
       state.token = action.payload.accessToken;
       state.user = { _id: "", email: "", isAdmin: false, sessionId: "" };
     });
     builder.addCase(logoutUser.rejected, (state, action) => {
       state.loading = false;
-      state.networkError = false;
+      state.networkError = true;
     });
   },
 });

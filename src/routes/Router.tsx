@@ -1,6 +1,12 @@
 import React, { useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
-import { HomePage, FormPage, AdminDashboardPage, CartPage } from "../pages";
+import {
+  HomePage,
+  FormPage,
+  AdminDashboardPage,
+  CartPage,
+  AnalyticsPage,
+} from "../pages";
 import AdminProtectedRoutes from "./protectedRoutes/admin.route";
 import { useAppDispatch } from "../app/hooks";
 import { setUser } from "../features/auth/auth.slice";
@@ -27,6 +33,7 @@ const Router = () => {
       <Route element={<AdminProtectedRoutes />}>
         <Route path="/admin/add-product" element={<FormPage />} />
         <Route path="/admin/edit-product/:id" element={<FormPage />} />
+        <Route path="/admin/analytics" element={<AnalyticsPage />} />
       </Route>
 
       <Route

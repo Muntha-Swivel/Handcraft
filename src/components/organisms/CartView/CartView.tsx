@@ -6,6 +6,7 @@ const CartView = ({ data }: ICartVeiw) => {
     <>
       {data.map((product) => (
         <CartCard
+          key={product._id}
           _id={product._id}
           title={product.title}
           price={product.price}
@@ -13,6 +14,7 @@ const CartView = ({ data }: ICartVeiw) => {
           image={product.image}
           quantity={product.quantity}
           totalPrice={product.totalPrice}
+          sold={product.sold}
         />
       ))}
     </>

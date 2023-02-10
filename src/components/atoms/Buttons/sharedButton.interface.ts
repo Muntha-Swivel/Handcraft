@@ -4,4 +4,5 @@ export interface IButton {
   fullWidth?: boolean;
   startIcon?: JSX.Element;
   endIcon?: JSX.Element;
+  disabled?: boolean;
 }

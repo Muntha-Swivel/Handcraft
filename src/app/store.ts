@@ -3,11 +3,13 @@ import { configureStore } from "@reduxjs/toolkit";
 import productSlice from "../features/product/product.slice";
 import cartSlice from "../features/cart/cart.slice";
 import authSlice from "../features/auth/auth.slice";
+import orderSlice from "../features/order/order.slice";
 export const store = configureStore({
   reducer: {
     product: productSlice,
     cart: cartSlice,
     auth: authSlice,
+    order: orderSlice,
   },
 });
 

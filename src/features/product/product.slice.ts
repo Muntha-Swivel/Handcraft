@@ -123,7 +123,7 @@ export const getAllProducts = createAsyncThunk(
 );
 export const addProduct = createAsyncThunk(
   "product/addProduct",
-  async (product: Omit<IProduct, "_id">) => {
+  async (product: Omit<Omit<IProduct, "_id">, "sold">) => {
     try {
       const response = await addProductService(product);
       return response.data;
@@ -147,7 +147,7 @@ export const getProuduct = createAsyncThunk(
 );
 export const updateProduct = createAsyncThunk(
   "product/updateProduct",
-  async (product: IProduct) => {
+  async (product: Omit<IProduct, "sold">) => {
     const { _id } = product;
     try {
       const response = await updateProductService(product, _id);

@@ -29,6 +29,7 @@ const ProductsGridView = ({ data }: IProductGridView) => {
               price={product.price}
               description={product.description}
               image={product.image}
+              sold={product.sold}
             >
               {user.isAdmin ? (
                 <>

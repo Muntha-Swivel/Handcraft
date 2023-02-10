@@ -20,8 +20,8 @@ const UserTabs = () => {
       value={value}
     >
       <Tab label="HOME" component={Link} to="/" />
-      <Tab label="ABOUT US" component={Link} to="/about" />
-      <Tab label="CONTACT" component={Link} to="/contact" />
+      {/* <Tab label="ABOUT US" component={Link} to="/analytics" />
+      <Tab label="CONTACT" component={Link} to="/contact" /> */}
     </Tabs>
   );
 };

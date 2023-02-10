@@ -7,6 +7,7 @@ const PrimaryButton = ({
   fullWidth,
   startIcon,
   endIcon,
+  disabled,
 }: IButton) => {
   return (
     <Button
@@ -18,6 +19,7 @@ const PrimaryButton = ({
       fullWidth={fullWidth}
       startIcon={startIcon}
       endIcon={endIcon}
+      disabled={disabled}
     >
       {text}
     </Button>
