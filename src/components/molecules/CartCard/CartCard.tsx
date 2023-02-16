@@ -62,7 +62,7 @@ const CartCard = ({
               )
             }
           />
-          <Typography variant="body1">x {price}</Typography>
+          <Typography variant="body1">x{price}</Typography>
         </Box>
       </Box>
       <CardMedia
