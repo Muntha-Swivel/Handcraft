@@ -9,6 +9,7 @@ import { Provider } from "react-redux";
 import { store } from "./app/store";
 
 function App() {
+  console.log(process.env.REACT_APP_BASE_URL);
   return (
     <Provider store={store}>
       <BrowserRouter>

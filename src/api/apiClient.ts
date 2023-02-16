@@ -2,7 +2,7 @@ import axios from "axios";
 
 const axiosClient = axios.create({
   withCredentials: true,
-  baseURL: "https://jwelcraft.herokuapp.com",
+  baseURL: process.env.REACT_APP_BASE_URL,
   headers: {
     Accept: "application/json",
     "Content-Type": "application/json",

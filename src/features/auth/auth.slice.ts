@@ -41,8 +41,8 @@ const authSlice = createSlice({
       state.token = action.payload.accessToken;
       state.loading = false;
       state.networkError = false;
-      Cookies.set("accessToken", action.payload.accessToken);
-      Cookies.set("refreshToken", action.payload.refreshToken);
+      Cookies.set("accessToken", action.payload.accessToken, { expires: 1 });
+      Cookies.set("refreshToken", action.payload.refreshToken, { expires: 10 });
       state.loginErrorMessage = "";
     });
     builder.addCase(loginUser.rejected, (state, action) => {
