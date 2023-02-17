@@ -1,22 +1,28 @@
-import React, { useState, useEffect } from "react";
+import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
+import LogoutIcon from "@mui/icons-material/Logout";
+import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
+import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import {
   AppBar,
   Button,
   Toolbar,
   useMediaQuery,
   useTheme,
+  Box,
 } from "@mui/material";
-import { DrawerComp } from "../Drawer/Drawer";
-import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
-import PersonOutlineOutlinedIcon from "@mui/icons-material/PersonOutlineOutlined";
-import LocalMallOutlinedIcon from "@mui/icons-material/LocalMallOutlined";
-import AddCircleOutlineOutlinedIcon from "@mui/icons-material/AddCircleOutlineOutlined";
-import { PictureButton, SearchBox } from "../../atoms";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { UserTabs, AdminTabs, CartIcon } from "../../atoms";
-import { useAppSelector, useAppDispatch } from "../../../app/hooks";
-import LogoutIcon from "@mui/icons-material/Logout";
+import { useAppDispatch, useAppSelector } from "../../../app/hooks";
 import { logoutUser } from "../../../features/auth/auth.slice";
+import {
+  AdminTabs,
+  CartIcon,
+  PictureButton,
+  SearchBox,
+  UserTabs,
+} from "../../atoms";
+import { DrawerComp } from "../Drawer/Drawer";
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 
 const UserNavBar = () => {
   const theme = useTheme();
@@ -40,9 +46,10 @@ const UserNavBar = () => {
             CraftJwel
           </Button>
           {isMatch ? (
-            <>
+            <Box sx={{ ml: "auto" }}>
+              <CartIcon />
               <DrawerComp />
-            </>
+            </Box>
           ) : (
             <>
               {isSearch ? (
