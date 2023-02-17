@@ -16,6 +16,7 @@ This is the frontend of **CraftJwel** application built using [ReactJs](https://
 
 3. ### Start the Project
 
+- Change `REACT_APP_BASE_URL` variable on **.env** file according to the URL your backend is running on.
 - Run `yarn start` or `npm start`. This will start the project in development.
 
 5. ### Run Test Cases
